@@ -8,51 +8,100 @@
     <link href="src/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="src/js/jquery-3.7.1.min.js"></script>
     <script type="text/javascript" src="src/js/bootstrap.min.js"></script>
+    <style>
+        .borda_lista {
+            border: dashed 2px #ccc;
+        }
+
+        .item {
+            border-bottom: dotted 1px #bbb;
+        }
+    </style>
 </head>
 
 <body>
     <form>
         <div class="container p-5">
             <div class="row mb-3">
-                <div class="col">
-                    <label for="custo" class="form-label">Controle de Custo:</label>
-                    <select name="" id="custo" class="form-select">
-                        <option selected>Escolha uma opção...</option>
-                        <option value="">Centro de custo 1</option>
-                        <option value="">Centro de custo 2</option>
-                        <option value="">Centro de custo 3</option>
-                        <option value="">Centro de custo 4</option>
+                <div class="col-4">
+                    <label for="opcao-custo" class="form-label">Controle de Custo:</label>
+                    <select id="opcao-custo" name="opcao-custo" class="form-select" required>
+                        <option selected disabled value="">Escolha uma opção...</option>
+                        <option value="custo-a">custo 1</option>
+                        <option value="custo-b">custo 2</option>
+                        <option value="custo-c">custo 3</option>
+                        <option value="custo-d">custo 4</option>
                     </select>
                 </div>
 
-                <div class="col">
-                    <label for="projeto" class="form-label">Opcão de Projetos:</label>
-                    <select name="" id="projeto" class="form-select">
-                        <option selected>Escolha uns dos projetos...</option>
-                        <option value="">projeto A</option>
-                        <option value="">Projeto B</option>
-                        <option value="">Projeto C</option>
-                        <option value="">Projeto D</option>
+                <div class="col-4">
+                    <label for="opcao-projeto" class="form-label">Opcão de Projetos:</label>
+                    <select name="opcao-projeto" id="opcao-projeto" class="form-select" required>
+                        <option value="" >Escolha uns dos projetos...</option>
+                        <option value="projeto-a">projeto A</option>
+                        <option value="projeto-b">Projeto B</option>
+                        <option value="projeto-c">Projeto C</option>
+                        <option value="projeto-d">Projeto D</option>
                     </select>
                 </div>
 
-                <div class="col">
+                <div class="col-4">
                     <label for="porcento" class="form-label">Porcentagem:</label>
                     <div class="input-group">
                         <span class="input-group-text">%</span>
                         <input type="number" id="porcento" class="form-control" min="0.00" max="100" step=".01"
-                            placeholder="use números decimais 0.00">
+                            placeholder="digite a porcentagem 0.00" required>
                         </input>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="d-grid gap-2 col-6 mx-auto">
+        <div class="acao-botao d-grid gap-2 col-4 mx-auto">
             <button class="btn btn-primary" type="submit">Adicionar</button>
         </div>
     </form>
-    <div>
-        
+    <div class="col-sm-12 col-md-4 mx-auto mt-5 borda_lista">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="item mt-2 mb-2">
+                    Centro de Custo: A<br>
+                    Projeto: B<br>
+                    Porcentagem: 25%
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <div class="item mt-2 mb-2">
+                    Centro de Custo: B<br>
+                    Porcentagem: 50%
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <div class="item mt-2 mb-2">
+                    Projeto: C<br>
+                    Porcentagem: 15%
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <div class="item mt-2 mb-2">
+                    Centro de Custo: C<br>
+                    Projeto: A<br>
+                    Porcentagem: 15%
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-sm-12">
+                <strong>TOTAL: 100%</strong>
+            </div>
+
+            <div class="col-sm-12 text-center">
+                <button class="btn btn-primary disabled" style="width: 100%;">Gerar Json</button>
+            </div>
+        </div>
     </div>
 </body>
 
